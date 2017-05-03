@@ -17,12 +17,15 @@
 
 window.onload = function() {
   var body = document.body;
-  var ring1 = document.querySelector('.ring-1');
-  var ring2 = document.querySelector('.ring-2');
-  var ring3 = document.querySelector('.ring-3');
+  var ring1 = document.getElementById('.ring-1');
+  var ring2 = document.getElementById('.ring-2');
+  var ring3 = document.getElementById('.ring-3');
 
   body.addEventListener('click', bullseyeGame.miss);
   ring1.addEventListener('click', bullseyeGame.outerRing)
+  ring2.addEventListener('click', bullseyeGame.middleRing)
+  ring3.addEventListener('click', bullseyeGame.Bullseye)
+
 }
 
 
