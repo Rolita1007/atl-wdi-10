@@ -10,23 +10,23 @@
 
 // 1. true || false 
 var resOne;
-// Replace This Comment With Your Code
+True// Replace This Comment With Your Code
 
 // 2. null || ''
 var resTwo;
-// Replace This Comment With Your Code
+false// Replace This Comment With Your Code
 
 // 3. 'false' && true
 var resThree;
-// Replace This Comment With Your Code
+false// Replace This Comment With Your Code
 
 // 4. !!0
 var resFour;
-// Replace This Comment With Your Code
+true// Replace This Comment With Your Code
 
 // 5. !null && !undefined
 var resFive;
-// Replace This Comment With Your Code
+false// Replace This Comment With Your Code
 
 /// Flow Control ///
 
