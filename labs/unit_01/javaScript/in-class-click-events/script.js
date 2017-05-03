@@ -45,18 +45,7 @@ window.onload = function() {
 		document.getElementById("information").removeChild(par2);
 
 	});
-
 }
-
-
-
-		
-
-
-
-
-
-
 
 
 

@@ -103,31 +103,26 @@ Each group will have 20 minutes to prepare a short explanation / demo of their a
 - touch main.css
 - subl .
 
-<!-- ```css
-a {
-    padding: 2em; /* initial state */
-    display: inline-block;
-    border: 1px solid black;
-    position: relative;
-    left: 0;
-    background: yellow;
-}
-a:hover {
-    background: green; /* final state */
-}
-``` -->
-
-#### In your index.html
+#### In your index.html, add the html below:
 
 ```
 <!DOCTYPE>
 <html>
     <head>
         <title>CSS Animations</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="main.css" />
     </head>
     <body>
-        <div class="square"></div>
+        <main class="container">
+          <div class="square"></div>
+        </main>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
     </body>
 </html>
 ```
@@ -136,6 +131,7 @@ a:hover {
 
 ```css
 .square {
+    margin-top: 40px;
     width: 200px;
     height: 200px;
     background: crimson; /* initial state */
@@ -195,12 +191,13 @@ Next, add a transition property:
 
 ```css
 .square {
+    margin-top: 40px;
     width: 200px;
     height: 200px;
     background: crimson; /* initial state */
     transition-property: background;
-    transition-duration: 5s; /* 1s is the default */
-    transition-delay: 1s;
+    transition-duration: 3s; /* 1s is the default */
+    transition-delay: .5s;
 }
 
 .square:hover {
@@ -208,21 +205,24 @@ Next, add a transition property:
 }
 ```
 
-### Updating to transition shorthand
+##### Transition Shorthand
 
 **Transition Shorthand**- allows your code to be shorter and more maintainable, especially if you are using vendor prefixes.
 
 - `transition: <transition-property> <transition-duration> <timing-function> <transition-delay>`
     - Example: `transition: transform 1s ease-in-out;` 
 
+### We Do
+
 #### In the main.css
 
 ```css
 .square {
+    margin-top: 40px;
     width: 200px;
     height: 200px;
     background: crimson; /* initial state */
-    transition: background-color 5s 1s; 
+    transition: background-color 3s .5s; 
 }
 
 .square:hover {
@@ -230,16 +230,22 @@ Next, add a transition property:
 }
 ```
 
+<br />
+
 ![](http://i.imgur.com/ylb6WX9.gif)
 
+##### in the index.html, in the main container, under your previous squares, add the html below:
+
 1. Create a 100px by 100px square box that has a background color of tomato, with a class of `square2`.
+
 2. Write a CSS rule that will transition your div from this initial state:
 
 ```css
 .square2 {
-    background: tomato;
+    margin-top: 50px;
     width: 100px;
     height: 100px;
+    background: tomato;
 }
 ```
 
@@ -255,11 +261,12 @@ Next, add a transition property:
 
 ```css
 .square2 {
-    background: tomato;
+    margin-top: 50px;
     width: 100px;
     height: 100px;  
-    transition-duration: 3s;
+    background: tomato;
     transition-property: background; /* specify which property you want to transition */
+    transition-duration: 3s;
     transition-timing-function: linear;
 }
 ```
@@ -280,18 +287,20 @@ The [transform](https://www.w3schools.com/cssref/css3_pr_transform.asp) property
 
 ### 2D Transform Methods 
 
-1. [rotate(angle)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_rotate)
+- [rotate(angle)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_rotate)
     - `transform: rotate(10deg);`
     - rotate an element clockwise or counter-clockwise via degrees(deg)
     - will rotate clockwise by default
     - if you use a negative value, it will rotate counter-clockwise
-1. [scale(x, y)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_scale)
+
+- [scale(x, y)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_scale)
     - `transform: scale(1.1);`
     - allows you to increase/decrease the size of an element
     - takes 2 parameters
         - 1st parameter(width)
         - 2nd parameter(height)
-1. [translate(x, y)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_translate)
+
+- [translate(x, y)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_translate)
     - `transform: translateX(10px);`
     - move an element from its **current position** on the x and y-axis
     - takes 2 parameters
@@ -301,7 +310,8 @@ The [transform](https://www.w3schools.com/cssref/css3_pr_transform.asp) property
         - 2nd parameter- y-axis
             - will move vertically
         - optional: use `translateX()` or `translateY()`
-1. [skew(x-angle, y-angle)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_skew)
+
+- [skew(x-angle, y-angle)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_skew)
     - `transform: skewX(45deg);`
     - skew elements on the x and y-axis via degrees(deg)
     - takes 2 parameters
@@ -313,9 +323,11 @@ The [transform](https://www.w3schools.com/cssref/css3_pr_transform.asp) property
         - [skewX(angle)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_skewx)
         - [skewY(angle)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_skewy)
 
-Syntax:
+##### Basic Transform Syntax:
  
 - `transform: method(parameter);`
+
+<br />
 
 ### We Do
 
@@ -323,6 +335,7 @@ Syntax:
 
 ```css
 .square {
+    margin-top: 50px;
     width: 200px;
     height: 200px;
     background-color: crimson; /* initial state */
@@ -339,19 +352,22 @@ Syntax:
 
 - You can check out the `transform` options in the Dev Tools using autocomplete. 
 
-**Transform Shorthand**:
+##### Transform Shorthand
 
-1. `transform: scale(2) skewX(20deg) rotate(4deg);`
+- With **transform shorthand**, you can combine multiple transform options together - note that they aren't comma-separated.
+
+- `transform: scale(2) skewX(20deg) rotate(4deg);`
 
 <br />
+<br />
 
-### 3D Space
+### 3D Transformations in the 3D Space
 
-3D transformations extends CSS transform to allow elements in CSS to be transformed in three-dimensional space.  You use the same values for the x and y-axis (horizontally and vertically).  The z-axis allows us to transform front and back/extend out of the screen or 2D pane.
+3D transformations extends CSS transform to allow elements in CSS to be transformed in a three-dimensional space.  You use the same values for the x and y-axis (horizontally and vertically).  The z-axis allows us to transform front and back/extend out of the screen or 2D pane.
 
 #### New CSS Properties
 
-1. [perspective](https://www.w3schools.com/cssref/css3_pr_perspective.asp)
+- [perspective](https://www.w3schools.com/cssref/css3_pr_perspective.asp)
     - distance between the viewer and the object
     - if you ever took an art class, you probably discussed perspective
         - **vanishing point**- when all points converge on a single point
@@ -361,74 +377,111 @@ Syntax:
     - a higher value will feel far away (1500px)
     - a lower value (400px) will make you feel closer to the object
     - **must be applied to the parent element**
+
     <br />
     ![Vanishing point](http://imgs.abduzeedo.com/files/articles/vanishing/vanishing-12.jpg)
-1. [perspective-origin](https://www.w3schools.com/cssref/css3_pr_perspective-origin.asp)
+
+- [perspective-origin](https://www.w3schools.com/cssref/css3_pr_perspective-origin.asp)
     - defines where the element exists on the x and y-axis
     - default 50% 50%, which represents the x and y-axis
-1. [transform-origin](https://www.w3schools.com/cssref/css3_pr_transform-origin.asp)
+
+- [transform-origin](https://www.w3schools.com/cssref/css3_pr_transform-origin.asp)
     - allows you to change the original x and y-positions
-1. [transform-style](https://www.w3schools.com/cssref/css3_pr_transform-style.asp)
+
+- [transform-style](https://www.w3schools.com/cssref/css3_pr_transform-style.asp)
     - allows child elements to preserve 3D transformations
     - flat (default)
     - `transform-style: preserve-3d;` // will keep that style for the child elements
-1. [backface-visibility](https://www.w3schools.com/cssref/css3_pr_backface-visibility.asp)
+
+- [backface-visibility](https://www.w3schools.com/cssref/css3_pr_backface-visibility.asp)
     - defines whether an element should be visible when it is facing the screen
 
-#### 3D Transform Methods
+<br />
 
-1. [rotateX(angle)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_rotatex) // transform clockwise
-1. [rotateY(angle)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_rotatey) // transform counterclockwise
-1. [rotateZ(angle)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_rotatez) // transform front and back
-1. rotate 3D shorthand: `rotate3d(x-axis, y-axis, z-axis, angle deg);`
+### 3D Transform Methods
+
+#### Rotate
+
+- [rotateX(angle)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_rotatex) // transform clockwise
+
+- [rotateY(angle)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_rotatey) // transform counterclockwise
+
+- [rotateZ(angle)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_rotatez) // transform front and back
+
+- rotate 3D shorthand: `rotate3d(x-axis, y-axis, z-axis, angle deg);`
     `rotate3d(1, 1, 1, 360deg);`
-1. [translateX(x)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_translatex) // transform horizontally
-1. [translateY(y)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_translatey) // transform vertically
-1. `translateZ(z);` // transform front and back
-1. translate 3D shorthand: `translate3d(x-axis, y-axis, z-axis);`
+
+#### Translate
+
+-  [translateX(x)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_translatex) // transform horizontally
+
+- [translateY(y)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_translatey) // transform vertically
+
+- `translateZ(z);` // transform front and back
+
+- translate 3D shorthand: `translate3d(x-axis, y-axis, z-axis);`
     `translate3d(50px, 50px, 75px);`
-1. [scaleX(x)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_scalex) // transform  width
-1. [scaleY(y)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_scaley) // transform height
-1. `scaleZ(z);` // transform front and back
-1. scale 3D shorthand: `scalee3d(width, height, z-axis);`
+
+#### Scale
+
+- [scaleX(x)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_scalex) // transform  width
+
+- [scaleY(y)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_scaley) // transform height
+
+- `scaleZ(z);` // transform front and back
+
+- scale 3D shorthand: `scalee3d(width, height, z-axis);`
     `translate3d(2, 2, 2);`
     3D- allows you to transform on the size and not on the movement
 
+#### Matrix
+
 If you know the math, you can write your own transformation matrix
 
-1. [matrix(n,n,n,n,n,n)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_matrix)
-1. matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)
-1. Example of a matrix: http://periodic.famo.us/
+- [matrix(n,n,n,n,n,n)](https://www.w3schools.com/cssref/playit.asp?filename=playcss_transform_matrix)
+
+- matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)
+
+- Example of a matrix: http://periodic.famo.us/
 
 
 #### Example of `translateX()`
 
 ```css
 .square {
-  width: 200px;
-  height: 200px;
-  background-color: crimson;
-  transform: translateX(0); /* start state */
-  transition-property: background-color, transform; /* make sure to add transform here */    
+    margin-top: 50px;
+    width: 200px;
+    height: 200px;
+    background-color: crimson;
+    transform: translateX(0); /* start state */
+    transition-property: background-color, transform; /* make sure to add transform here */    
 }
 
 .square:hover {
-    ...
-    transform: translateX(100px); /* end state */
+    background: darkBlue;
+    transform: skewX(20deg) translateX(100px); /* end state */
 }    
 ```
 
 ![](http://i.imgur.com/ylb6WX9.gif)
 
-1. Rotate your box 45 degrees
-1. Translate it along the X axis by 200px
-1. Translate it along the Y axis by 200px
-2. Try `transform: translate(200px, 200px);`
-1. Scale the div so it is twice as big
-2. Skew the div by 10 degrees
-3. You can also combine multiple values: `transform: translateX(200px) skew(30deg) scale(3);`
-4. `transform: perspective(35px) translate3d(20px, 30px, 15px);`
-    - x, y, z axis
+Use the definitions above to work on the exercises below to work with your second div with a class of `square2`: 
+
+1. Rotate your box 45 degrees.
+2. Translate it along the X axis by 200px
+3. Translate it along the Y axis by -200px
+  - Shorthand: translate(200px, -200px);`
+4. Scale the div so it is twice as big
+5. Skew the div by 20 degrees
+6.  Add a perspective of 35px
+7.  Add a translate 3d where the x-axis is 20px, the y-axis is 30px, and the z-axis is 15px
+
+<br />
+
+#### If you need help
+
+- Try `transform: rotate(45deg) translateX(200px) translateY(-200px) scale(2) skew(20deg) perspective(35px) translate3d(20px, 30px, 15px);`
+    - x, y, z-axis
     - perspective is distance from the user 
     - when perspective === z-axis you're behind the element
 
@@ -447,7 +500,7 @@ Transforms are better for animation for two reasons:
     * Add `display: inline-block` to your CSS rule
     * Add some lorem ipsum 
  
-1. If you're doing a 3D transform, the computer's Graphics Processing Unit (GPU) is engaged, which is really fast
+2. If you're doing a 3D transform, the computer's Graphics Processing Unit (GPU) is engaged, which is really fast
     - http://codepen.io/paulirish/pen/nkwKs (uses top/left position)
         - Ultimately, the element has to re-calculate every time the computer 
         moves based on what is around it.
@@ -460,20 +513,24 @@ Transforms are better for animation for two reasons:
 
 Transitions are great for going from one state to another, but sometimes you need more than an initial and a final state.  [Keyframes](https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp) can be used to add color changes based on the percentage of visibility. A keyframe is similar to a function declaration, in that it starts with **@keyframes**, followed by the animation name, followed by curly braces.  Inside of the curly braces, you add the keyframes-selector/percentage followed by a normal css rule.
 
-![](http://i.imgur.com/ylb6WX9.gif)
+### Define a named animation with a set of keyframes. 
+- These are similar to the traditional animation "tweeners" that were mentioned earlier.
 
-1. Define a named animation with a set of keyframes. These are similar to the traditional animation "tweeners" that were mentioned earlier.
-    
+#### Keyframes using from... to
+
 ```css
 @keyframes example {
     from { background-color: red; }
     to   { background-color: yellow; }
 }
 ```
+
 <br />
 
+#### Keyframes using percentages
+
 ```css
-@keyframes example {
+@keyframes example1 {
     0%   { background-color: red; left: 0px; top: 0px; }
     25%  { background-color: yellow; left: 200px; top: 0px; }
     50%  { background-color: blue; left: 200px; top: 200px; }
@@ -483,11 +540,55 @@ Transitions are great for going from one state to another, but sometimes you nee
 ```
 > Note, remember that for production, `translate` will be faster than `left`, `top`, etc.
 
+<br />
 
-1. Assign the animation to a rule and give it a duration
-    
+#### Additional properties:
+
+- [animation-duration](https://www.w3schools.com/cssref/css3_pr_animation-duration.asp)
+    - specifies how many seconds or milliseconds an animation takes to complete one cycle
+    - mandatory in order for the animation to happen
+    - the default is 0
+- [animation-timing-function](https://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp)
+    - defines the speed curve of the animation
+    - linear, ease, ease-in, ease-out, ease-in-out, cubic-bezier(n, n, n, n)
+- [animation-iteration-count](https://www.w3schools.com/cssref/css3_pr_animation-iteration-count.asp) (can be set to infinite)
+    - specifies the number of times an animation should run
+- [animation-direction](https://www.w3schools.com/cssref/css3_pr_animation-direction.asp)
+    - specifies whether an animation should play in reverse direction or alternate cycles
+    - reverse
+    - alternate
+- [animation-delay](https://www.w3schools.com/cssref/css3_pr_animation-delay.asp)
+    - specifies a delay for the start of an animation
+- [animation-play-state](https://www.w3schools.com/cssref/css3_pr_animation-play-state.asp)
+    - specifies whether the animation is running or paused
+    - paused
+    - running
+- [animation-fill-mode](https://www.w3schools.com/cssref/css3_pr_animation-fill-mode.asp)
+    - specifies a style for the element when the animation is not playing (when it is finished, or when it has a delay)
+
+<br />
+
+#### Animation Shorthand
+
+`animation: <animation-name> <animation-duration> <animation-timing-function> <animation-delay>
+        <animation-iteration-count> <animation-direction>;`
+
+<br />
+
+[Codepen Animation Example](http://codepen.io/marenwoodruff/pen/EWKMKJ?editors=1100)
+
+<br />
+<br />
+
+![](http://i.imgur.com/ylb6WX9.gif)
+
+1. Add the keyframe definition for example and example1 to your main.css
+
+2. Assign the animation to a rule and give it a duration with the following properties:
+
 ```css
-div {
+.square2 {
+    margin-top: 50px;
     width: 100px;
     height: 100px;
     background-color: red;
@@ -495,59 +596,15 @@ div {
     animation-name: example;
     animation-duration: 4s;
     animation-timing-function: linear;
-}
-```
-
-1. Additional properties:
-    - [animation-duration](https://www.w3schools.com/cssref/css3_pr_animation-duration.asp)
-        - specifies how many seconds or milliseconds an animation takes to complete one cycle
-        - mandatory in order for the animation to happen
-        - the default is 0
-    - [animation-timing-function](https://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp)
-        - defines the speed curve of the animation
-        - linear, ease, ease-in, ease-out, ease-in-out, cubic-bezier(n, n, n, n)
-    - [animation-iteration-count](https://www.w3schools.com/cssref/css3_pr_animation-iteration-count.asp) (can be set to infinite)
-        - specifies the number of times an animation should run
-    - [animation-direction](https://www.w3schools.com/cssref/css3_pr_animation-direction.asp)
-        - specifies whether an animation should play in reverse direction or alternate cycles
-        - reverse
-        - alternate
-    - [animation-delay](https://www.w3schools.com/cssref/css3_pr_animation-delay.asp)
-        - specifies a delay for the start of an animation
-    - [animation-play-state](https://www.w3schools.com/cssref/css3_pr_animation-play-state.asp)
-        - specifies whether the animation is running or paused
-        - paused
-        - running
-    - [animation-fill-mode](https://www.w3schools.com/cssref/css3_pr_animation-fill-mode.asp)
-        - specifies a style for the element when the animation is not playing (when it is finished, or when it has a delay)
-
-**Animation Shorthand**
-
-`animation: <animation-name> <animation-duration> <animation-timing-function> <animation-delay>
-        <animation-iteration-count> <animation-direction>;`
-
-[Animation Example](http://codepen.io/marenwoodruff/pen/EWKMKJ?editors=1100)
-
-![](http://i.imgur.com/ylb6WX9.gif)
-
-1. Try adding the following properties
-
-```css
-div {
-    ...
     animation-iteration-count: inifinite;
     animation-direction: alternate;    
 }
 ```
     
-1. Try adding another keyframe
+3. Try adding another keyframe to your example1 keyframe definition
 
 ```css
-15% {
-    background-color: orange;
-    left: 400px; 
-    top: 400px;
-}
+15% { background-color: orange; left: 400px; top: 400px; }
 ```
 
 <br />
@@ -588,97 +645,121 @@ jQuery has some simple animation methods like [fadeIn()](https://www.w3schools.c
 
 **Syntax**
 <br />
-`$(selector).fadeIn(speed,easing,callback);`
+`$(selector).fadeIn(speed, easing, callback);`
+
 - **speed**- specifies the speed of the fading effect
     - milliseconds
     - slow
     - fast
+
 - **easing**- specifies the speed of the element in different points of the animation. Default value is "swing"
     - swing - moves slower at the beginning/end, but faster in the middle
     - linear - moves in a constant speed
+
 - **callback**- a function to be executed after the fadeIn() method is completed
 
-Let's try this in Codepen.io (make sure to include the jQuery library under Settings -> Quick Add).
+<!-- Let's try this in Codepen.io (make sure to include the jQuery library under Settings -> Quick Add). -->
 <br />
 
-1. html:
+1. in the index.html, in the main container, under your previous squares, add the html below:
 
-    ```html
-    <div id="box1">BOX 1</div>
+```html
+<div class="square3"></div>
 ```
-2. css:
 
-    ```css
-    #box1 {
-        height: 100px;
-        width: 100px;
-        padding: 10px;
-        position: relative;
-        background-color: aqua;
-    }
-```
-1. jQuery:
+2. in your main.css:
 
-    ```js
-    $('#box1').fadeIn(3000).fadeOut(10000);
+```css
+.square3 {
+    margin-top: 50px;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    position: relative;
+    background-color: aqua;
+}
 ```
+
+3. in your script.js, add this jQuery:
+
+```js
+$(window).on('load', function() {
+    $('.square3').fadeIn(3000).fadeOut(3000);
+});
+```
+
 Here are some [common jQuery effects](http://www.w3schools.com/jquery/jquery_ref_effects.asp) you can use.
 
 <br />
 
 ### `animate()`
+
  You can accomplish a lot of the CSS animation code from above using 
 [animate()](https://www.w3schools.com/jquery/jquery_animate.asp). The jQuery animate() method is used to create custom animations.
 
-**Syntax**
-<rb />
-`$(selector).animate({params},speed,callback);`
+##### Basic Syntax
+- `$(selector).animate({params},speed,callback);`
+
 - **params**- required params parameter defines the CSS properties to be animated
 - **speed**- speed parameter specifies the duration of the effect. 
     - slow
     - fast
     - milliseconds
+
 - **callback parameter**- a function to be executed after the animation completes
 
 Here is an example:
  
-1. html:
+1. in the index.html, in the main container, under your previous squares, add the html below:
 
-    ```html
-    <div class="container">
-        <div id="box1">BOX 1</div>
-        <div id="box2">BOX 2</div>
-    </div>
-    <div class="controlButtons">
-        <button type="button">Toggle</button>
-    </div>
-```
-2. css:
+```html
+<div class="square4"></div>
 
-    ```css
-    #box2 {
-        height: 100px;
-        width: 100px;
-        padding: 10px;
-        position: relative;
-        background-color: mediumVioletRed;
-    }
+<div class="controlButtons">
+    <button type="button">Toggle</button>
+</div>
 ```
 
-1. jQuery:
+2. in the main.css:
 
-    ```js
+```css
+.square4 {
+    margin-top: 50px;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    position: relative;
+    background-color: mediumVioletRed;
+}
+
+.controlButtons {
+    margin-top: 50px;
+}
+```
+
+3. in the script.js, in the window.on load function, under your square3 jQuery, add this:
+
+```js
+$(window).on('load', function() {
+    $('.square3').fadeIn(3000).fadeOut(3000);
+
     $("button").click(function(){
-        $("#box2").animate({
-            height: 'toggle';
+        $(".square4").animate({
+            height: 'toggle'
         }, 4000);
+    });
 });
 ```
-<br />
-
-[animate() Example](http://codepen.io/marenwoodruff/pen/mWPowR)
 
 <br />
+
+[Codepen jQuery Animate Example](http://codepen.io/marenwoodruff/pen/mWPowR)
+
+<br />
+
+## My Solution to today's in-class exercise
+
+https://github.com/marenwoodruff/css-animation
 
 ## Lab
 
@@ -719,24 +800,3 @@ Look at the following examples, try to re-create them from scratch using as litt
 - [You do example- tomato box](http://codepen.io/marenwoodruff/pen/oZxGeV?editors=1100)
 - [Keyframe example](http://codepen.io/marenwoodruff/pen/EWKMKJ?editors=1100)
 - [jQuery example](http://codepen.io/marenwoodruff/pen/mWPowR)
-
-<!--/* @keyframes example {
-    0%   {background-color:red; left:0px; top:0px;}
-    25%  {background-color:yellow; left:200px; top:0px;}
-    50%  {background-color:blue; left:200px; top:200px;}
-    75%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}
-} */
-/* div {
-    width: 100px;
-    height: 100px;
-    color: white;
-} */
-/* #box1 {
-  background-color: red;
-  position: relative;
-  animation-name: example;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-direction: reverse;
-} */-->
