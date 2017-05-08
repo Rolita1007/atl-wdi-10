@@ -1,4 +1,5 @@
 window.onload = function() {
+<<<<<<< HEAD
 	//button one
 
 	// 1. get access to button one
@@ -49,3 +50,6 @@ window.onload = function() {
 
 
 
+=======
+}
+>>>>>>> 3828c59c51713f41b82d21225c444b6debe2784a

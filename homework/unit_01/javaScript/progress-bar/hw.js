@@ -4,8 +4,8 @@
 
 var timerUI = {
   drawNumericDisplay: function(timerValue){
-   var numericDisplay = document.getElementById('numeric-display');
-   numeric-display.textContent = timerValue;
+   var $id = $('.numeric-display');
+   
 
   },
   drawProgressBars: function(timerValue){
