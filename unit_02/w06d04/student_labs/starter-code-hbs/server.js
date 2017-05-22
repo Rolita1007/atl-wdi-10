@@ -8,6 +8,14 @@ var app         = express();
 var port        = process.env.PORT || 3000;
 /* set up the application params*/
 
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+
+var todosController = require('./controllers/todosControllers.js');
 // log
 app.use( logger('dev'));
 
