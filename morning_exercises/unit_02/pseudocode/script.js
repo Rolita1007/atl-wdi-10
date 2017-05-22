@@ -4,7 +4,7 @@
 
 var barrels = function(small, large, total){
   var smallBarrel = 60;
-  var largeBarrel = (825 - (2 * 60)) / 6;
+  var largeBarrel = (total - (small * smallBarrel)) / large;
 
 return largeBarrel;
 };
@@ -14,6 +14,7 @@ return largeBarrel;
 // Sailing the Seas
 
 var shipFuelCost = function(fuelPrice, milesPerGallon){
+
  if (fuelPrice * milesPerGallon){
  	console.log ('shipFuelCost');
  } else{
@@ -26,15 +27,11 @@ var shipFuelCost = function(fuelPrice, milesPerGallon){
 // GROG
 
 var calcFruitJuice = function(a, b, c, d){
-  
+
 	var pureFruitJuice = (a + b)
 	var costcoFruitPunch = (a) * c
 	var kirklandFruitPunch = (b) * c
 	var totalFruitPunch = (a + b + c) * d
-
-
-
-
 
 };
 

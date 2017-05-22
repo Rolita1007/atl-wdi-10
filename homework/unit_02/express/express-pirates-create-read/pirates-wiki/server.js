@@ -1,4 +1,4 @@
-var path = require('path');
+
 var logger = require('morgan');
 var express = require('express');
 var hbs = require('hbs');
@@ -22,4 +22,4 @@ var port = 3000;
 
 //app.listen(port,function () {
 	console.log('running on port ' + port);
-});	
+});
