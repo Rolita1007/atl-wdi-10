@@ -14,9 +14,9 @@ var port    = 3000;
 // app.set("views engine", "hbs");
 // app.set('views', './views');
 
-// app.get('/', function (req, res) {
-// 	res.send('Welcome to Pizza Express');
-// });
+ app.get('/', function (req, res) {
+	res.send('Welcome to Pizza Express');
+ });
 
 // app.use('/controllers', toppingsController.js);
 
