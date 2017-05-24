@@ -7,8 +7,8 @@ var app = require('express');
 
 
 
-var pirateController = require('./controllers/pirates.js');
-app.use("/pirates", pirateController);
+// var pirateController = require('./controllers/pirates.js');
+// app.use("/pirates", pirateController);
 
 
 
