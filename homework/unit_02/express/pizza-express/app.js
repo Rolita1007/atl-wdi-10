@@ -1,17 +1,12 @@
-// app.js
 
-//require express package
 var express = require('express');
-//save an express module as 'app'
 var app     = express();
-// assigning 3000 as our port
 var port    = 3000;
-
 var hbs = require('hbs');
 
-//var toppings = require ('/controllers/toppingsController.js');
+var toppingsController = require('./controllers/toppingsController.js');
 
-
+app.use('/toppings', toppingsController.js);
 
 app.set("view engine", "hbs");
 app.set('views', './views');
@@ -20,7 +15,7 @@ app.set('views', './views');
 	res.send('Welcome to Pizza Express');
  });
 
-// app.use('/controllers', toppingsController.js);
+
 
 
 
