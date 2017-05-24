@@ -9,6 +9,7 @@ var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var hbs = require("hbs");
 var logger = require('morgan');
+var port = 3000;
 
 
 //======================
@@ -40,6 +41,8 @@ app.use('/', donutsController);
 // LISTENERS
 //======================
 //CONNECT MONGOOSE TO "donut_store"
-
+app.listen(3000, function(){
+  console.log("app listening on port 3000");
+});
 
 //CREATE THE MONGOOSE CONNECTION and SET APP TO LISTEN to 3000
