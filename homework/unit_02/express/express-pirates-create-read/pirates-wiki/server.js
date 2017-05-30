@@ -1,13 +1,23 @@
-var express = require('express');
-var morgan = require('morgan');
+var express = require("express");
 var app = express();
+var logger = require("morgan");
+var bodyParser = require("body-parser");
+var hbs = require('hbs');
 
-var bodyParser = require('body-parser');
+//this is for morgan
+app.use(logger("dev"));
+//these are for bodyParser
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+//set handlebars as view engine
+app.set("view engine", "hbs");
+app.set('views', './views');
 
-var port = 3000;
+//controllers for `/pirates` resource
+var pirateController = require('./controllers/pirates.js');
+app.use("/pirates", pirateController);
 
 
-
-app.listen(port,function () {
-	console.log('running on port ' + port);
+app.listen(3000, function(req, res){
+  console.log("listening");
 });
