@@ -1,0 +1,23 @@
+<h1>Users</h1>
+
+<ul>
+ {{#each userList}}
+  <li>
+    <div <a href="/users/{{_id}}"></a>User</div>
+    <div<a href="/users/delete/{{_id}}">Delte User</a>></div>
+    <div>ID: {{id}}</div>
+    <div>Last Name: {{last_name}}</div>
+    <div>Email: {{email}}</div>
+    <div>Created At: {{created_at}}</div>
+    <div>Items:
+      <ul>
+        {{# each items}}
+          <li>Name: {{name}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </li>
+ {{/each}}
+</ul>
+
+<div <a href="/users/new"></a>Creat a New User</div>

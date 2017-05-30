@@ -3,6 +3,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
+var hbs = require('hbs');
+app.set('view engine', 'hbs');
+
+var methodOveride = require('method-override');
+app.use(methodOveride)('_method'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

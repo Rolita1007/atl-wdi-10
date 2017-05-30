@@ -50,6 +50,6 @@ maren.save(function(err) {
 
 diesel.save(function(err) {
   if (err) console.log(err);
-  
+
   console.log('diesel created!');
 });
