@@ -52,7 +52,6 @@ router.post('/', function(request, response){
  User.save//send it to the data base
 })
 
-
 // USER SHOW ROUTE
 router.get('/:id', function(request, response) {
 
