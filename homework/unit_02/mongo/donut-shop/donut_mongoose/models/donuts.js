@@ -10,7 +10,6 @@ description: "I am a chocolate donut.",
 img: "http://cdn.phillymag.com/wp-content/uploads/2013/09/donut.png",
 price: 5,
 qty: 99
-
 });
 
 //export your donut with module.exports()
