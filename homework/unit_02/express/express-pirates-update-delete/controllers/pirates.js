@@ -1,103 +1,64 @@
-//==============================
-// REQUIREMENTS
-//==============================
-
-var express = require("express");
+var express = require('express');
 var router = express.Router();
-var pirates = require('../models/pirates.js');
-
-//==============================
-// READ
-//==============================
-//for root pirate page
-router.get('/', function(req, res){
-	res.render("pirates/index.hbs", {
-		pirates: pirates
-	});
-});
-
-
-router.get('/new', function(req, res){
-	res.render("pirates/new.hbs");
-});
-
-
-//this is for each pirate page
-router.get('/:id', function(req, res){
-
-	//grab the pirate by id
-	var showPirate = pirates[req.params.id];
-
-	res.render("pirates/show.hbs", {
-		pirate: showPirate
-	});
-});
-
-
-//==============================
-// CREATE
-//==============================
-router.post('/', function(req, res){
-  var pirateUser = new Pirate({
-    name: req.body.name,
-    birthplace: req.body.birthplace,
-    death_year: req.body.death_year,
-    base: req.body.base,
-    nickname: req.body.nickname
+var seededPirates = require('../models/pirates.js');
+// all routes for /pirates go here
+router.get('/', function (request, response) {
+  //index route
+  // this should show all the pirates
+  response.render('pirates/index', {
+    seededPirates : seededPirates
   });
-
-  user.save(function(err, pirateUser) {
-    if (err) {
-      console.log(err);
-      return;
+});
+router.get('/new', function (request, response) {
+  //a form should appear here
+  response.render('pirates/new');
+});
+router.get('/:id', function(request, response) { //this is the show route and has to be below the new route
+  //show one pirate
+  var theChosenPirate = seededPirates[request.params.id];
+  response.render('pirates/show', {
+      name : theChosenPirate.name,
+      birthplace : theChosenPirate.birthplace,
+      death_year : theChosenPirate.death_year,
+      base : theChosenPirate.base,
+      nickname : theChosenPirate.nickname
+  });
+});
+//get pirate making form
+router.post('/', function (request, response) {
+  //things happen here
+  var addedPirate = request.body;
+  seededPirates.push(addedPirate);
+  response.redirect('/pirates');
+});
+//get pirate editing form
+router.get('/:id/edit', function (request, response) {
+  response.render('pirates/edit', {
+    pirate : {
+      name : seededPirates[request.params.id].name,
+      birthplace : seededPirates[request.params.id].birthplace,
+      death_year : seededPirates[request.params.id].death_year,
+      base : seededPirates[request.params.id].base,
+      nickname : seededPirates[request.params.id].nickname,
+      id : request.params.id
     }
-    console.log(pirateUser);
-    res.render('pirates/show', {
-      pirate: pirate
-    });
   });
 });
-//==============================
-// UPDATE
-//==============================
- router.post('/id:', function(req, res) {
-  User.findByIdAndUpdate(req.params.id,
-    name: req.body.name,
-    birthplace: req.body.birthplace,
-    death_year: req.body.death_year,
-    base: req.body.base,
-    nickname: req.body.nickname
-  ), {new: true})
-    .exec(function(err, user) {
-      if (err) {
-        console.log(err);
-        return;
-      }
-      console.log(user);
-      res.render('pirates/show', {
-        pirates: pirates
-      });
-    });
+//edit the pirate after filling out edit form
+router.put('/:id', function(request, response) {
+  var pirateToEdit = seededPirates[request.params.id];
+  console.log('pirate to edit is: '+pirateToEdit.name);
+  pirateToEdit.name = request.body.name;
+  pirateToEdit.birthplace = request.body.birthplace;
+  pirateToEdit.death_year = request.body.death_year;
+  pirateToEdit.base = request.body.base;
+  pirateToEdit.nickname = request.body.nickname;
+  console.log('now the edited pirate is: '+pirateToEdit.name);
+  response.redirect('/pirates/'+request.params.id);
 });
-
-//==============================
-// DESTROY
-//==============================
-router.delete('/id:', function(req, res) {
-  User.findByIdAndRemove(req.params.id)
-  .exec(function(err, user) {
-    if(err) {
-      console.log(err);
-      return;
-    }
-    console.log('User deleted');
-    resend("User deleted");
-  });
+router.delete('/:id', function (request, response) {
+  seededPirates.splice(request.params.id, 1);
+  response.redirect('/pirates');
 });
-
-
-//==============================
-// EXPORTS
-//==============================
-
 module.exports = router;
+Add Comment
