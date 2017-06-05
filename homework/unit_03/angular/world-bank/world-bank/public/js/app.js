@@ -1,0 +1,1 @@
+angular.nodule('worldbank', []);
