@@ -8794,9 +8794,23 @@ exports.UrlRouterProvider = UrlRouterProvider;
 var angular = __webpack_require__(30);
 __webpack_require__(87);
 
-angular.module('RonSwansonApp', ['ui.router']);
+//angular.module('RonSwansonApp', ['ui.router']);
 
-// Set up your UI Router HERE
+// // Set up your UI Router HERE
+
+// uiRouterSetup.$inject = ['stateProvider', '$urlRouterProvider'];
+
+// function uiRouterSetup($stateProvider, $urlRouterProvider) {
+//   $stateProvider
+//     .state('home', {
+//       url: '/',
+//       template: '<home></home>'
+//     })
+//     .state('quote', {
+//       url: '/quote',
+//       template: '<h1>Quote</h1><a ui-sref="home">Home</a>'
+//     })
+// }
 
 /***/ }),
 /* 59 */
@@ -8805,6 +8819,16 @@ angular.module('RonSwansonApp', ['ui.router']);
 "use strict";
 
 
+var controller = __webpack_require__(60);
+var template = __webpack_require__(96);
+
+var component = {
+  controller: controller,
+  template: template
+};
+
+angular.module('RonSwansonApp').component('home', component);
+
 /***/ }),
 /* 60 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -8812,11 +8836,37 @@ angular.module('RonSwansonApp', ['ui.router']);
 "use strict";
 
 
+HomeController.$inject = [];
+
+function HomeController() {
+
+  // WHAT THIS CONTROLLER HAS / DOES THAT IS CONNECTED TO THE VIEW
+  var vm = this;
+
+  // activate === BEST PRACTICE, ALWAYS DO IT, EVEN IF EMPTY
+  activate();
+
+  function activate() {}
+}
+
+module.exports = HomeController;
+
 /***/ }),
 /* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+// const controller = require('./netflix.controller.js');
+// const template = require('./netflix.html');
+
+// const component = {
+//   controller: controller,
+//   template: template
+// };
+
+// angular
+//   .module('RonSwansonApp')
+//   .component('netflix', component);
 
 
 /***/ }),
@@ -44505,6 +44555,12 @@ __webpack_require__(62);
 __webpack_require__(63);
 module.exports = __webpack_require__(64);
 
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"home\">\n  <h1>Home!!</h1>\n</div>\n";
 
 /***/ })
 /******/ ]);
