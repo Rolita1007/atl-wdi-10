@@ -28,6 +28,8 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		})
 		.state('criminalsShow', {
 			url: '/criminals/:criminalId',
+			//the file name of the component like below has to be with a dash
+			//reference components criminals show components
 			template: '<criminals-show></criminals-show>'
 		});
 

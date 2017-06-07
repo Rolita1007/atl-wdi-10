@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 var criminalsController = require('./server/routes/criminals.js');
+//the below is routing to the app.js in criminals
 app.use('/api/criminals', criminalsController);
 
 app.listen(port, function(){

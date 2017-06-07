@@ -8946,6 +8946,8 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		template: '<criminals-new></criminals-new>'
 	}).state('criminalsShow', {
 		url: '/criminals/:criminalId',
+		//the file name of the component like below has to be with a dash
+		//reference components criminals show components
 		template: '<criminals-show></criminals-show>'
 	});
 
@@ -9001,7 +9003,11 @@ var component = {
   template: template
 };
 
-angular.module('criminals').component('criminalsShow', component);
+angular.module('criminals'
+
+//the criminalsShow has to be the camelCase but on the app.js it has to
+//be with a dash
+).component('criminalsShow', component);
 
 /***/ }),
 /* 67 */
