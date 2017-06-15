@@ -1,0 +1,14 @@
+SELECT name FROM teams;
+SELECT stadim, head_coach FROM teams WHERE conference = 'NFC';
+SELECT head_coach FROM teams WHERE conference = 'AFC' AND division = 'South';
+SELECT COUNT(*) FROM players;
+SELECT name, head_coach FROM teams WHERE conference = 'NFC' AND division = 'North' OR conference = 'AFC' and division = 'East';
+SELECT name FROM players ORDER BY salary DESC LIMIT 50;
+SELECT AVG (salary) FROM players;
+SELECT name, position FROM players WHERE salary > 10000000;
+SELECT name FROM players ORDER BY salary DESC LIMIT 1;
+SELECT name, position FROM players ORDER BY salary LIMIT 100;
+SELECT AVG (salary) FROM players WHERE position = 'DE';
+SELECT name FROM players WHERE teams.id IN SELECT id FROM teams WHERE name = 'Buffalo Bills';
+SELECT SUM (salary) FROM players WHERE team_id IN SELECT id FROM teams WHERE name = 'NEW York Giants';
+SELECT MIN (salary) FROM players WHERE team_id IN SELECT id FROM teams WHERE name = 'Green Bay Packers';
