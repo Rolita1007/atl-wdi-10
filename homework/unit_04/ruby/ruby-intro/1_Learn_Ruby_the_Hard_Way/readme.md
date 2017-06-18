@@ -101,6 +101,9 @@ Please answer the following questions in the spaces provided.
   ```ruby
     # your answer here
   ```
+  if number == 5
+   puts "Its a 5!"
+  end
 
 2.  Please write code that would take the string "007", reverse it,
     and return the integer `700`.
@@ -108,7 +111,7 @@ Please answer the following questions in the spaces provided.
   ```ruby
     # your answer here
   ```
-
+"007".reverse
 3.  Please write code that takes the array `[23,56,3,7]`, sorts it,
     and then reverses that sorted array 'in place'
     (i.e. modifying the original array, rather than returning a new array).
@@ -116,24 +119,29 @@ Please answer the following questions in the spaces provided.
   ```ruby
     # your answer here
   ```
+  [23, 56, 3, 7].sort!.reverse!
 
 3.  What does an exclamation point at the end of a method name usually signify?
 
   ```text
     Your answer here:
   ```
+  Alters the incoming object rather than returning a new object
 
 4.  What does a question mark and the end of a method name usually signify?
 
   ```text
     Your answer here:
   ```
-
+Returns a true or false value
 5.  How do you define a method in Ruby? Give a simple example.
 
   ```ruby
     # your answer here
   ```
+  def
+    puts "Hello"
+  end
 
 6.  How do you create a class in Ruby? Give a simple example.
 
