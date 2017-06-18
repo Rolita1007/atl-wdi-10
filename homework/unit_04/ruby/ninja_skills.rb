@@ -42,6 +42,19 @@ for_fun_entered = gets.chomp
 
 puts "#{name_entered} like to #{for_fun_entered}"
 
+#Challenge 6
+my_first_array = []
+my_first_array = ["summer", "spring", "winter", "fall", "hot", 3, 6, 8, 9]
+puts my_first_array.last
+puts my_first_array.first
+my_first_array[1] = "Joe"
+my_first_array[2] = 3
+puts my_first_array.to_s
+my_first_array.push(true)
+puts my_first_array[3].class
+
+
+
 
 
 
