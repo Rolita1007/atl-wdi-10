@@ -31,6 +31,18 @@ g_to_number = 2
 puts g_to_number + g.to_i
 
 #Challenge 5
+puts "Enter your favorite number"
+number_entered = gets.chomp
+puts number_entered.to_i * 2
+
+puts "What is your name"
+name_entered = gets.chomp
+puts "What do you like to do in your free time"
+for_fun_entered = gets.chomp
+
+puts "#{name_entered} like to #{for_fun_entered}"
+
+
 
 
 
